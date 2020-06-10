@@ -1,0 +1,20 @@
+test0:
+	100 random random 500000
+test1:
+	2000 random random 500000
+test2: 
+	100 descending random 500000
+test3:
+	2000 descending random 500000
+test4:
+	100 ascending random 500000
+test5:
+	2000 descending sortare 500000
+test6:
+	100 ascending sortare 500000
+test7:
+	2000 ascending sortare 500000
+test8:
+	100 random sortare 500000
+test9:
+	2000 random sortare 500000

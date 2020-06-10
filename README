@@ -1,0 +1,54 @@
+Dobos Claudiu-Florin 323CD
+
+
+Pentru rularea temei este folosita o comanda de forma make treap/heap urmata de
+cat input.in | ./tester 	sau ./tester si input dat de la tastatura.
+
+In cadrul acestei implementari elementele sunt de tipul int.
+	Structura testelor este urmatoarea:
+Pentru Insert: I element
+Pentru GetMax: G
+Pentru DeleteMax: D
+	Am ales aceasta structura pentru a putea testa individual operatiile de
+Insert, GetMax si DeleteMax.
+	Citirea se termina la intalnirea caracterului '0'.
+	Fiecare comanda este singura pe linie, citirea se face de la stdin, asa cum
+era explicata in readme-ul de pe github, din enuntul temei.
+	Testele 0-4 sunt o combinatie random de comenzi I, G si D, variez
+dimensiunea inputului si ordinea elementelor din input(ascending, descending,
+random).
+	Testele 5-9 se axeaza pe o sortare, adica insereaza la inceput toate
+elementele si dupa afiseaza toate maximele in ordine descrescatoare (cu o
+succesiune de G si D). 
+	Cu ajutorul acestor teste se verifica corectitudinea algoritmilor.
+	Pentru stabilirea eficientei, voi masura timpul de executie pentru
+inserarea elementelor de la testele 5-9 si il voi imparti la numarul de
+elemente inserate, calculand astfel costul mediu pentru o operatie de inserare.
+Similar si pentru celelalte doua operatii.
+	Comenzile date pentru generarea testelor sunt in in/descriereteste .
+	Testele au fost generate folosind generator.c. Modul de utilizare al
+acestuia este: ./generator numar_max_insert ordine_insert(ascending/descending/
+random) tip_problema(sortare,random) maxnumber > testID.in
+unde maxnumber reprezinta cel mai mare element posibil la input (in modul),
+numar_max_insert reprezinta numarul maxim de operatii de insert care vor fi in
+test.
+	Numerele date de generator sunt fara dubluri, am folosit pentru asta
+algoritmul lui Knuth. Acesta scoate output sortat crescator, iar pentru input
+random voi folosi functia shuffle.
+
+	Pentru a testa tema am scris checker.sh (Utilizare ./checker.sh) care
+compara rezultatul produs de cei doi algoritmi cu rezultatul ce se afla in
+directorul /out, care este corect.
+	In algo.cpp se afla implementarea pentru heap.
+	Makefile are regulile heap si treap, la rularea acestora se obtine
+executabilul ./tester cu implementarea functiilor pentru heap, respectiv pentru
+treap. Regula build construieste fisierul obiect corespunzator solutiei din
+algo.cpp
+	In algo.h am pus functiile insert, getMax, deleteMax si initialize.
+	In algo_test.c se realizeaza parsarea comenzilor primite la stdin si cheama
+functia corespunzatoare pentru realizarea comenzii. Acesta este comun pentru
+cei 2 algoritmi.
+	Implementarile au fost realizate cu urmarirea pseudocodului si adaptarea
+acestuia la nevoile programului meu. Treap:
+https://ocw.cs.pub.ro/courses/sd-ca/laboratoare/lab-10
+Heap: https://en.wikipedia.org/wiki/Binary_heap#Heap_implementation
